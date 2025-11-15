@@ -1,13 +1,13 @@
 import Banner from "../components/Banner";
 import Features from "../components/Features";
-import ProductList from "../components/ProductList";
+import Product from "../components/Product";
 
 const HomePage = () => {
   return (
     <div>
       <Banner />
       <Features />
-      <ProductList />
+      <Product />
     </div>
   );
 };

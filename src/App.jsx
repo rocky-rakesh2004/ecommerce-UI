@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import ErrorPage from "./components/ErrorPage";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import CheckoutPage from "./pages/CheckoutPage";
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
           </Route>
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} /> 
+          <Route path="/cart" element={<CheckoutPage />} /> 
           <Route path="*" element={<ErrorPage />} />
         </Routes>
 

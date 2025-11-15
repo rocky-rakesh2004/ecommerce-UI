@@ -5,6 +5,70 @@
   animation: fadeIn 0.6s ease;
 }
 
+/* ---------------- PRODUCT SEARCH ---------------- */
+.product-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.product-search input {
+  flex: 1 1 200px;
+  max-width: 350px;
+  min-width: 120px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ff6600;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.product-search input:focus {
+  border-color: #e65c00;
+  box-shadow: 0 0 6px rgba(255, 102, 0, 0.4);
+}
+
+.product-search button {
+  flex: 0 0 auto;
+  padding: 0.5rem 1rem;
+  background-color: #ff6600;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.product-search button:hover {
+  background-color: orange;
+}
+
+/* Dark mode */
+.app.dark-mode .product-search input {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+  border-color: #ffa500;
+}
+
+.app.dark-mode .product-search input:focus {
+  border-color: #e6a000;
+  box-shadow: 0 0 6px rgba(255, 165, 0, 0.4);
+}
+
+.app.dark-mode .product-search button {
+  background-color: #ffa500;
+  color: #000;
+}
+
+.app.dark-mode .product-search button:hover {
+  background-color: #e6a000;
+}
+
 /* Container for sidebar + content */
 .products-container {
   display: flex;
@@ -27,7 +91,7 @@
   background-color: #fff;
   padding: 1rem;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
 
@@ -82,17 +146,15 @@
 .products-grid {
   display: grid;
   gap: 1.7rem;
-
-  /* Fluid columns */
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
-/* ---------------- PRODUCT CARD ---------------- */
+/* ---------------- Product Card ------------ */
 .product-card {
   background: white;
   border-radius: 12px;
   padding: 1rem;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   text-align: center;
   transition: 0.3s ease;
   display: flex;
@@ -114,7 +176,7 @@
   height: 180px;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .product-card h3 {
@@ -131,7 +193,7 @@
   color: #ffa500;
 }
 
-/* ---------------- ADD TO CART BUTTON ---------------- */
+/* -------------- Add TO CART BUTTON ---------- */
 .add-to-cart-btn {
   padding: 0.5rem 1rem;
   background-color: #ff6600;
@@ -142,6 +204,29 @@
   font-weight: 600;
   transition: 0.3s ease;
 }
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.qty-controls button {
+  padding: 0.4rem 0.8rem;
+  background: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.qty-controls span {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
 
 .add-to-cart-btn:hover {
   background-color: #e65c00;
@@ -156,13 +241,19 @@
   background-color: #e6a000;
 }
 
-/* FADE-IN ANIMATION */
+/* Fade-IN -ANIMATION */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* ---------------- RESPONSIVE ---------------- */
+/* ---------------- Responsinenss ---------------- */
 @media (max-width: 900px) {
   .category-sidebar {
     position: relative;
@@ -171,7 +262,6 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  
 
   .category-btn {
     margin-bottom: 0.5rem;
