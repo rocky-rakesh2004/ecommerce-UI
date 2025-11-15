@@ -1,0 +1,48 @@
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1rem;
+  margin: 0.8rem;
+  place-items: stretch; 
+}
+
+/* Rectangle feature cards */
+.feature-item {
+  width: 100%;
+
+  aspect-ratio: 4 / 3;
+
+  border-radius: 12px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-color: #fff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+
+  transition: 0.3s ease;
+}
+
+.dark-mode .feature-item {
+  background-color: #222;
+  box-shadow: 0.1rem 0.1rem 0.5rem rgba(255, 165, 0, 0.8);
+}
+
+/* Images */
+.item-1 {
+  background-image: url("../assets/free delivery.png");
+}
+
+.item-2 {
+  background-image: url("../assets/gifts.png");
+}
+
+.item-3 {
+  background-image: url("../assets/discount.png");
+}
+
+/* Hover effect */
+.feature-item:hover {
+  transform: translateY(-5px);
+}

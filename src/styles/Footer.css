@@ -1,0 +1,18 @@
+
+/* Footer */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+  background: #f3f3f3;
+  color: #333;
+  font-size: 0.95rem;
+  border-top: 1px solid #ddd;
+}
+
+.app.dark-mode .footer {
+  background: #1a1a1a;
+  color: #ddd;
+  border-color: #444;
+}

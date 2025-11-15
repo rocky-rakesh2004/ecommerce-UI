@@ -1,0 +1,157 @@
+/* ---------------- ABOUT PAGE ---------------- */
+.about-page {
+  width: 100%;
+  padding-bottom: 3rem;
+  animation: fadeIn 0.6s ease;
+}
+
+.about-hero {
+  width: 100%;
+  height: 260px;
+  background: linear-gradient(
+    rgba(245, 124, 0, 0.55),
+    rgba(255, 201, 40, 0.25)
+  );
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 3rem;
+
+  color: #000;
+  text-shadow: 0.1rem 0.1rem 0.6rem #f0f0f0;
+
+  transition: 0.4s ease-in-out;
+}
+
+/* Dark mode */
+.app.dark-mode .about-hero {
+  background: linear-gradient(rgba(255, 165, 0, 0.7),rgba(0, 0, 0, 0.6));
+  background-color: #f0f0f0;
+  color: #f5f5f5;
+  text-shadow: 0.1rem 0.1rem 0.4rem black;
+}
+
+.about-hero h1 {
+  font-size: 2.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.about-hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+
+  padding: 0 2rem;
+  flex-wrap: wrap;
+}
+
+/* Image */
+.about-image img {
+  width: 320px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease;
+}
+
+.app.dark-mode .about-image img {
+  background-color: #f0f0f089;
+}
+
+.about-image img:hover {
+  transform: scale(1.03);
+}
+
+/* Text */
+.about-text {
+  max-width: 600px;
+}
+
+.about-text h2 {
+  margin-top: 1rem;
+  color: #ff6600;
+  font-size: 1.5rem;
+}
+
+.app.dark-mode .about-text h2 {
+  color: #ffa500;
+}
+
+.about-text p {
+  margin: 0.5rem 0 1rem;
+  line-height: 1.6rem;
+  font-size: 1rem;
+}
+
+.about-text ul {
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.about-text ul li {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------ RESPONSIVE ------ */
+
+@media (max-width: 900px) {
+  .about-hero {
+    height: 220px;
+  }
+
+  .about-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-hero {
+    height: 180px;
+  }
+
+  .about-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-hero p {
+    font-size: 0.95rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.3rem;
+  }
+}
