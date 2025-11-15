@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 
 import ProductCategories from "./ProductCategories";
 import ProductList from "./ProductList";
-import ProductSearch from "./ProductSearch";
 import Cart from "./Cart";
+import { SearchContext } from "./SearchContext";
 
 import "../styles/Product.css";
 
@@ -23,13 +23,13 @@ const Product = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [searchTerm, setSearchTerm] = useState("");
   const [cartItems, setCartItems] = useState(() => {
-  const savedCart = localStorage.getItem("cartItems");
-  return savedCart ? JSON.parse(savedCart) : [];
-});
+    const savedCart = localStorage.getItem("cartItems");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
   const [showCart, setShowCart] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
+
+  const { searchTerm } = useContext(SearchContext);
 
   useEffect(() => {
     axios
@@ -43,22 +43,19 @@ const Product = () => {
         console.error(err);
         setLoading(false);
       });
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
+  }, []);
+
+  useEffect(() => {
+    filterProducts(selectedCategory, searchTerm);
+  }, [selectedCategory, searchTerm, products]);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-    filterProducts(category, searchTerm);
-  };
-
-  const handleSearch = () => {
-    filterProducts(selectedCategory, searchTerm);
   };
 
   const filterProducts = (category, search) => {
     let result = [...products];
 
-    // Filter by category
     if (category !== "All") {
       result = result.filter((p) => {
         const cat = p.category.toLowerCase();
@@ -77,7 +74,6 @@ const Product = () => {
       });
     }
 
-    // Filter by search
     if (search) {
       result = result.filter((p) =>
         p.title.toLowerCase().includes(search.toLowerCase())
@@ -105,6 +101,10 @@ const Product = () => {
 
   const toggleCart = () => setShowCart((prev) => !prev);
 
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
   return (
     <div className="products-page" id="shop">
       <div className="products-container">
@@ -115,33 +115,27 @@ const Product = () => {
         />
 
         <main className="products-content">
-          <ProductSearch
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            onSearch={handleSearch}
-          />
-
           <ProductList
             products={filteredProducts}
             loading={loading}
             addToCart={addToCart}
-            cartItems={cartItems} // <- pass cartItems here
-            handleAdd={(id) => {
+            cartItems={cartItems}
+            handleAdd={(id) =>
               setCartItems((prev) =>
                 prev.map((item) =>
                   item.id === id ? { ...item, qty: item.qty + 1 } : item
                 )
-              );
-            }}
-            handleSub={(id) => {
+              )
+            }
+            handleSub={(id) =>
               setCartItems((prev) =>
                 prev
                   .map((item) =>
                     item.id === id ? { ...item, qty: item.qty - 1 } : item
                   )
                   .filter((item) => item.qty > 0)
-              );
-            }}
+              )
+            }
           />
         </main>
 

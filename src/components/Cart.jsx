@@ -1,6 +1,7 @@
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import "../styles/Cart.css";
+import { Link } from "react-router-dom";
 
 const Cart = ({ cartItems = [], setCartItems, toggleCart, isOpen }) => {
   const handleAdd = (id) => {
@@ -37,7 +38,9 @@ const Cart = ({ cartItems = [], setCartItems, toggleCart, isOpen }) => {
           ) : (
             <>
               <div className="cart-items">
-                <h1 className="cart-heading" style={{textAlign: "center"}}>Your cart</h1>
+                <h1 className="cart-heading" style={{ textAlign: "center" }}>
+                  Your cart
+                </h1>
                 {cartItems.map((item) => (
                   <div key={item.id} className="cart-item">
                     <img src={item.thumbnail} alt={item.title} />
@@ -54,6 +57,9 @@ const Cart = ({ cartItems = [], setCartItems, toggleCart, isOpen }) => {
                 ))}
               </div>
               <div className="cart-total">Total: ₹{total}</div>
+              <button className="checkout-btn">
+                <Link to="/cart">Check Out</Link>
+              </button>
             </>
           )}
         </div>

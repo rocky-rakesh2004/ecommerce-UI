@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from "react";
-import "../styles/CheckoutPage.css"; // create a dedicated CSS
+import "../styles/CheckoutPage.css";
 import { Link } from "react-router-dom";
-import { FiHome } from "react-icons/fi";
+import { FaArrowLeft } from "react-icons/fa";
 
 const CheckoutPage = () => {
-  // Cart items from localStorage
   const [cartItems, setCartItems] = useState(() => {
     const stored = localStorage.getItem("cartItems");
     return stored ? JSON.parse(stored) : [];
   });
+
+  const [contact, setContact] = useState("");
+  const [name, setName] = useState("");
+  const [shippingAddress, setShippingAddress] = useState("");
+  const [deliverySchedule, setDeliverySchedule] = useState("Express Delivery");
+  const [orderNote, setOrderNote] = useState("");
+  const [orderPlaced, setOrderPlaced] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const handleAdd = (id) => {
     setCartItems((prev) =>
@@ -26,41 +36,63 @@ const CheckoutPage = () => {
     );
   };
 
-  // User details
-  const [contact, setContact] = useState("");
-  const [name, setName] = useState("");
-  const [shippingAddress, setShippingAddress] = useState("");
-  const [deliverySchedule, setDeliverySchedule] = useState("Express Delivery");
-  const [orderNote, setOrderNote] = useState("");
-
-  // Persist cart items
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
-
-  // Cart total
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.qty,
     0
   );
-  const tax = 0; // placeholder
-  const shipping = 0; // placeholder
-  const total = subtotal + tax + shipping;
+
+  const handleConfirmOrder = () => {
+    if (!contact.trim() || !name.trim() || !shippingAddress.trim()) {
+      alert("Please fill in all required fields (Contact, Name, Address).");
+      return;
+    }
+
+    if (cartItems.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+
+    console.log("Order confirmed:", cartItems);
+
+    setCartItems([]);
+    localStorage.removeItem("cartItems");
+
+    setOrderPlaced(true);
+  };
+
+ if (orderPlaced) {
+  return (
+    <div className="checkout-page thank-you-page">
+      <div className="thank-you-content">
+        <h1 className="thank-you-title">Thank You!</h1>
+        <p className="thank-you-message">
+          Your order has been placed successfully. <br />
+        </p>
+        <Link to="/" className="checkout-btn return-home-btn">
+          Return to Home
+        </Link>
+      </div>
+    </div>
+  );
+}
 
   return (
     <div className="checkout-page">
+      <Link style={{ color: "#ff6600", fontSize: "2rem" }} to="/">
+        <FaArrowLeft />
+      </Link>
       <h1>Checkout</h1>
 
-      {/* Contact */}
       <section className="checkout-section">
         <h3>Contact Number</h3>
         <div className="input-group">
           <span className="country-code">+91</span>
           <input
-            type="text"
+            type="number"
             placeholder="Enter phone number"
             value={contact}
             onChange={(e) => setContact(e.target.value)}
+            required
           />
         </div>
       </section>
@@ -73,17 +105,19 @@ const CheckoutPage = () => {
           placeholder="Enter your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
       </section>
 
       {/* Address */}
       <section className="checkout-section">
-        <h3> Address </h3>
+        <h3>Address</h3>
         <input
           type="text"
           placeholder="Enter your Address"
           value={shippingAddress}
           onChange={(e) => setShippingAddress(e.target.value)}
+          required
         />
       </section>
 
@@ -114,8 +148,14 @@ const CheckoutPage = () => {
 
       {/* Order Summary */}
       <section className="checkout-section order-summary">
-        <h3>Your Order</h3>
+        <h2>Your Orders</h2>
         <div className="order-items">
+          {cartItems.length === 0 && (
+            <p style={{ textAlign: "center", color: "#666" }}>
+              No items in cart.
+            </p>
+          )}
+
           {cartItems.map((item) => (
             <div key={item.id} className="order-item">
               <span>{item.title}</span>
@@ -136,11 +176,12 @@ const CheckoutPage = () => {
             Sub Total: <span>₹{subtotal.toFixed(2)}</span>
           </p>
         </div>
-        <button className="checkout-btn">Confirm Order</button>
-        <button className="back-btn">
-          {" "}
-          <Link to="/">Back to store</Link>{" "}
+        <button className="checkout-btn" onClick={handleConfirmOrder}>
+          Confirm Order
         </button>
+        <Link to="/" className="back-btn">
+          Back to store
+        </Link>
       </section>
     </div>
   );

@@ -11,7 +11,7 @@ const ProductList = ({ products = [], loading, addToCart, cartItems, handleAdd, 
         <ProductCard
           key={product.id}
           product={product}
-          cartItems={cartItems}  // now this exists
+          cartItems={cartItems} 
           addToCart={addToCart}
           handleAdd={handleAdd}
           handleSub={handleSub}

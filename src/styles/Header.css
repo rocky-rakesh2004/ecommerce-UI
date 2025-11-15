@@ -121,7 +121,6 @@
   color: #fff;
 }
 
-/* ----- RESPONSIVE ----- */
 @media (max-width: 768px) {
 
   .nav {
@@ -141,7 +140,6 @@
     background: #222;
   }
 
-  /* Show menu */
   .nav.nav-open {
     display: flex;
   }
