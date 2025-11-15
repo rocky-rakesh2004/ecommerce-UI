@@ -11,6 +11,12 @@
   display: inline-block;
 }
 
+.banner-content a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
 
 
 /* --- Error page ----*/

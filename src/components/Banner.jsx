@@ -1,4 +1,5 @@
 import "../styles/Banner.css";
+import { HashLink as Link } from "react-router-hash-link";
 
 const Banner = () => {
   return (
@@ -8,7 +9,9 @@ const Banner = () => {
         <p className="banner-subtitle">
           Discover top deals and fast delivery on everything you need.
         </p>
-        <button className="banner-btn">Shop Now</button>
+        <Link smooth to="#shop" className="banner-btn">
+          Shop Now
+        </Link>
       </div>
     </div>
   );
