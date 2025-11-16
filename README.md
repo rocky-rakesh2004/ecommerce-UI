@@ -1,4 +1,5 @@
-<img width="367" height="349" alt="image" src="https://github.com/user-attachments/assets/52c30da4-8ce0-463a-9dbf-9868f3bbbcac" />
+<img width="367" height="349" alt="image" src="https://github.com/user-attachments/assets/52c30da4-8ce0-463a-9dbf-9868f3bbbcac" /> <img width="546" height="471" alt="image" src="https://github.com/user-attachments/assets/9f5315bc-6e08-41f9-ae02-150916824e39" />
+
 
 # ecommerce-UI 
 
