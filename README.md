@@ -1,6 +1,3 @@
-<img width="367" height="349" alt="image" src="https://github.com/user-attachments/assets/52c30da4-8ce0-463a-9dbf-9868f3bbbcac" /> <img width="546" height="471" alt="image" src="https://github.com/user-attachments/assets/9f5315bc-6e08-41f9-ae02-150916824e39" />
-
-
 # ecommerce-UI 
 
 This repository contains a modern, responsive e-commerce frontend built with React, featuring a clean UI, dark mode support, API integration using Axios, and smooth page navigation powered by React Router.
@@ -14,5 +11,9 @@ Live Demo: [https://eshop-ui.netlify.app/](https://eshop-ui.netlify.app/)
 - Clean, modular component structure
 - Axios for API calls
 - Simple and effective CSS styling
+
+  <img width="367" height="349" alt="image" src="https://github.com/user-attachments/assets/52c30da4-8ce0-463a-9dbf-9868f3bbbcac" /> <img width="546" height="471" alt="image" src="https://github.com/user-attachments/assets/9f5315bc-6e08-41f9-ae02-150916824e39" />
+
+
 
 
