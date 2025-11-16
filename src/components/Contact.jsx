@@ -1,9 +1,22 @@
 import React from "react";
 import "../styles/Contact.css";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa6";
 
 const Contact = () => {
   return (
     <div className="contact-page">
+      <Link
+        style={{
+          color: "#ff6600",
+          fontSize: "2rem",
+          position: "absolute",
+          margin: "1rem",
+        }}
+        to="/"
+      >
+        <FaArrowLeft />
+      </Link>
       <section className="contact-hero">
         <h1>Contact Us</h1>
         <p>Have questions? We're always here to help you!</p>

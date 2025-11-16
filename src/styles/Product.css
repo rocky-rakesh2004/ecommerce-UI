@@ -12,7 +12,7 @@
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .product-search input {
@@ -81,7 +81,7 @@
 .category-sidebar {
   text-align: center;
   position: sticky;
-  top: 2rem;
+  top: 0.5rem;
   height: fit-content;
   min-width: 180px;
   flex-shrink: 0;

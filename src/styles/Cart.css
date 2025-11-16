@@ -13,7 +13,7 @@
   color: rgb(0, 0, 0);
   border: none;
   padding: 0.6rem;
-  border-radius: 50%;
+  border-radius: 20%;
   cursor: pointer;
   position: relative;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -23,12 +23,14 @@
   position: absolute;
   top: -6px;
   right: -6px;
+  padding: 0.5rem;
   background: red;
   color: white;
   font-weight: bold;
   font-size: 0.8rem;
   width: 18px;
   height: 18px;
+  border: 0.01rem solid rgb(255, 255, 0);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -53,6 +55,29 @@
   transition: all 0.3s ease;
 }
 
+.cart-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: orangered;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.cart-close-btn:hover {
+  background-color: orange;
+}
+
+
 .app.dark-mode .cart-panel {
   background-color: #383836;
   color: #f0f0f0;
@@ -71,6 +96,10 @@
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+}
+
+.app.dark-mode .cart-item img {
+  background-color: whitesmoke;
 }
 
 .cart-item-qty {

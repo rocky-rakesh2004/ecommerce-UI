@@ -26,6 +26,7 @@ const Cart = ({ cartItems = [], setCartItems, toggleCart, isOpen }) => {
     <div className="cart-container">
       <button className="cart-icon-btn" onClick={toggleCart}>
         <FaShoppingCart size={22} />
+        <div style={{backgroundColor:"white", color: "red", padding :"0.1rem",borderRadius:"20%"}}>₹{total}</div>
         {cartItems.length > 0 && (
           <span className="cart-count">{cartItems.length}</span>
         )}
@@ -33,6 +34,7 @@ const Cart = ({ cartItems = [], setCartItems, toggleCart, isOpen }) => {
 
       {isOpen && (
         <div className="cart-panel">
+          <button className="cart-close-btn" onClick={toggleCart}>✕</button>
           {cartItems.length === 0 ? (
             <p className="empty-cart">Your cart is empty.</p>
           ) : (

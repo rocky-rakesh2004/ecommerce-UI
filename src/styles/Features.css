@@ -21,7 +21,7 @@
   background-color: #fff;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
 
-  transition: 0.3s ease;
+  transition: 0.5s ease;
 }
 
 .dark-mode .feature-item {
@@ -44,5 +44,5 @@
 
 /* Hover effect */
 .feature-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
